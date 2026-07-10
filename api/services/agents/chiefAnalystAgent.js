@@ -61,4 +61,4 @@ class ChiefAnalystAgent {
   }
 }
 
-module.exports = new ChiefAnalystAgent();
+export default new ChiefAnalystAgent();

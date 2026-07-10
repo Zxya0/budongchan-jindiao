@@ -1,4 +1,5 @@
-const express = require('express');
+import express from 'express';
+
 const router = express.Router();
 
 router.post('/parse', async (req, res) => {
@@ -13,4 +14,4 @@ router.post('/confirm', (req, res) => {
   res.json({ code: 200, data: { parseId, fields: confirmedFields, validation: { valid: true, warnings: [] } } });
 });
 
-module.exports = router;
+export default router;

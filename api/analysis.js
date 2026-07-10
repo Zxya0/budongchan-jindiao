@@ -1,6 +1,7 @@
-const express = require('express');
+import express from 'express';
+import mongoose from 'mongoose';
+
 const router = express.Router();
-const mongoose = require('mongoose');
 
 const AnalysisRecordSchema = new mongoose.Schema({
   stockCode: { type: String, required: true },
@@ -76,7 +77,8 @@ router.post('/real-estate', async (req, res) => {
 
     const savedRecord = await newRecord.save();
 
-    require('./services/realEstateOrchestrator').startAnalysis(savedRecord._id, {
+    const { default: orchestrator } = await import('./services/realEstateOrchestrator.js');
+    orchestrator.startAnalysis(savedRecord._id, {
       financingScenario: financingScenario || 'bankLoan',
       uploadedDocs: uploadedDocs || [],
     }).catch(err => {
@@ -135,4 +137,4 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-module.exports = router;
+export default router;

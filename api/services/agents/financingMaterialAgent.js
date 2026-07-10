@@ -75,4 +75,4 @@ class FinancingMaterialAgent {
   }
 }
 
-module.exports = new FinancingMaterialAgent();
+export default new FinancingMaterialAgent();

@@ -66,4 +66,4 @@ class ComplianceAgent {
   }
 }
 
-module.exports = new ComplianceAgent();
+export default new ComplianceAgent();

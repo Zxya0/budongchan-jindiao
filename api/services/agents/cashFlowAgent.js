@@ -63,4 +63,4 @@ class CashFlowAgent {
   }
 }
 
-module.exports = new CashFlowAgent();
+export default new CashFlowAgent();

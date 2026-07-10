@@ -73,4 +73,4 @@ class AssetOperationsAgent {
   }
 }
 
-module.exports = new AssetOperationsAgent();
+export default new AssetOperationsAgent();

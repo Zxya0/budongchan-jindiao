@@ -1,4 +1,11 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
+import agentOperations from './agents/assetOperationsAgent.js';
+import agentCashFlow from './agents/cashFlowAgent.js';
+import agentRisk from './agents/riskManagementAgent.js';
+import agentESG from './agents/esgAgent.js';
+import agentCompliance from './agents/complianceAgent.js';
+import agentFinancing from './agents/financingMaterialAgent.js';
+import agentChief from './agents/chiefAnalystAgent.js';
 
 const AnalysisRecordSchema = new mongoose.Schema({
   stockCode: { type: String, required: true },
@@ -16,14 +23,6 @@ const AnalysisRecordSchema = new mongoose.Schema({
 });
 
 const AnalysisRecord = mongoose.models.AnalysisRecord || mongoose.model('AnalysisRecord', AnalysisRecordSchema);
-
-const agentOperations = require('./agents/assetOperationsAgent');
-const agentCashFlow = require('./agents/cashFlowAgent');
-const agentRisk = require('./agents/riskManagementAgent');
-const agentESG = require('./agents/esgAgent');
-const agentCompliance = require('./agents/complianceAgent');
-const agentFinancing = require('./agents/financingMaterialAgent');
-const agentChief = require('./agents/chiefAnalystAgent');
 
 class RealEstateOrchestrator {
   async startAnalysis(recordId, options = {}) {
@@ -168,4 +167,4 @@ class RealEstateOrchestrator {
   }
 }
 
-module.exports = new RealEstateOrchestrator();
+export default new RealEstateOrchestrator();

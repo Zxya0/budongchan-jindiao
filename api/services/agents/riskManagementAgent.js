@@ -101,4 +101,4 @@ class RiskManagementAgent {
   }
 }
 
-module.exports = new RiskManagementAgent();
+export default new RiskManagementAgent();

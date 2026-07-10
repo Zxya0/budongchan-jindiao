@@ -1,7 +1,11 @@
-require('dotenv').config();
-const express = require('express');
-const cors = require('cors');
-const mongoose = require('mongoose');
+import 'dotenv/config';
+import express from 'express';
+import cors from 'cors';
+import mongoose from 'mongoose';
+import analysisRouter from './analysis.js';
+import ttsRouter from './tts.js';
+import uploadRouter from './upload.js';
+import dataRouter from './data.js';
 
 const app = express();
 
@@ -29,12 +33,12 @@ const connectDB = async () => {
   return dbConnectionPromise;
 };
 
-app.use('/api/analysis', require('./analysis'));
-app.use('/api/tts', require('./tts'));
-app.use('/api/upload', require('./upload'));
-app.use('/api/data', require('./data'));
+app.use('/api/analysis', analysisRouter);
+app.use('/api/tts', ttsRouter);
+app.use('/api/upload', uploadRouter);
+app.use('/api/data', dataRouter);
 
-module.exports = async (req, res) => {
+export default async (req, res) => {
   await connectDB();
   app(req, res);
 };

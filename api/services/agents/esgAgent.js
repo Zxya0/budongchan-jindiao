@@ -61,4 +61,4 @@ class ESGAgent {
   }
 }
 
-module.exports = new ESGAgent();
+export default new ESGAgent();
