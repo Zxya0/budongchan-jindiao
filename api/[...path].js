@@ -2,10 +2,10 @@ import 'dotenv/config';
 import express from 'express';
 import cors from 'cors';
 import mongoose from 'mongoose';
-import analysisRouter from './analysis.js';
-import ttsRouter from './tts.js';
-import uploadRouter from './upload.js';
-import dataRouter from './data.js';
+import analysisRouter from '../server/analysis.js';
+import ttsRouter from '../server/tts.js';
+import uploadRouter from '../server/upload.js';
+import dataRouter from '../server/data.js';
 
 const app = express();
 
